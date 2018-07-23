@@ -53,14 +53,15 @@ gulp.task("minifyCss", ["compileSass"], function() {
 gulp.task('watchFiles', function() {
   gulp.watch('assets/css/**/*.scss', ['compileSass']);
   gulp.watch('assets/js/*.js', ['concatScripts']);
+  gulp.watch('assets/css/**/*.css');
 })
 
 gulp.task('browser-sync', function() {
     browserSync.init({
-        server: {
-            baseDir: "./"
-        }
-    });
+    proxy: "http://Hexal:8888",
+    open: "external",
+    notify: "false"
+});
 });
 
 gulp.task('clean', function() {
@@ -84,13 +85,33 @@ gulp.task("build", ['minifyScripts', 'minifyCss'], function() {
 
 gulp.task('serve', ['watchFiles'], function(){
   browserSync.init({
-        server: "./"
+        server: "./",
     });
 
     gulp.watch("assets/css/**/*.scss", ['watchFiles']);
-    gulp.watch(['*.html', '*.php']).on('change', browserSync.reload);
+    gulp.watch(['*.html', '*.php', 'assets/css/*.css']).on('change', browserSync.reload);
 });
 
-gulp.task("default", ["clean", 'build'], function() {
+gulp.task("default", ['build'], function() {
   gulp.start('renameSources');
+});
+
+gulp.task('default', function () {
+    return gulp.src('src/assets.css')
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: "false"
+        }))
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('img', function() {
+    return gulp.src('assets/img/**/*')
+    .pipe(imagemin({
+      interlaced: true,
+      progressive: true,
+      svgoPlugin: [{removeVievBox: false}],
+      use: [pngquant()]
+    }))
+    .pipe(gulp.dest('dist/img'));
 });

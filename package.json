@@ -1,5 +1,5 @@
 {
-  "name": "bootstrap4-boiler-plate",
+  "name": "Hexal-web-page",
   "version": "1.0.0",
   "description": "a bootstrap 4 boiler plate with sass, concatenation, minification, autoprefixer, sourcemaps, browser-sync, git and gulp task runner",
   "main": "index.js",
@@ -10,7 +10,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chingiznet/bootstrap4-boilerplate"
+    "url": "https://github.com/chingiznet/Hexal-web-page"
   },
   "devDependencies": {
     "browser-sync": "^2.18.13",
@@ -24,5 +24,8 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.2"
   }
 }

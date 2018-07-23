@@ -5,15 +5,281 @@
   outline: none;
 }
 html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   height: 100%;
 }
-$transition: all 0.3s ease;
+
 body {
   overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
 }
+
 .img-full {
   width: 100%;
   height: auto;
+}
+
+.container {
+  max-width:1020px;
+}
+
+.navbar {
+  padding:0;
+  width:100%;
+  background-color: #323232;
+
+&-nav {
+  width:100%;
+  padding:0 25px;
+}
+
+  .nav-item {
+
+    padding:23px 5px 12px 5px;
+
+    .link {
+
+      color:#fff;
+      font-size:10px;
+      &:hover {
+        color:#306e62;
+        text-shadow: -.25px -.25px 0 #306e62, 
+                .25px .25px #306e62;
+      }
+
+      &:active {
+        color:#306e62;
+        text-shadow: -.25px -.25px 0 #306e62, 
+                .25px .25px #306e62;
+      }
+
+    }
+
+  }
+
+  .logo::after {
+  content: '';
+  border: 45px solid transparent; 
+  border-top: 25px solid #333; 
+  position: absolute;
+  right:50%;
+  transform:translateX(50%);
+  top:100%;
+  z-index:10;
+}
+
+}
+
+.slider-section {
+  background-color: #fff;
+
+.slide {
+}
+
+  .radio-buttons {
+    left:0;
+    right:inherit;
+    margin:0 0 0 16px;
+    bottom:24px;
+  }
+
+  .btn {
+    background-color: #ddd2c5;
+    width:6px;
+    height:6px;
+    padding:0;
+    border-radius: 0;
+    margin:0 3px 0 0;
+
+    &.active {
+      background-color: #8b8784;
+    }
+
+  }
+
+  .slider-content {
+    padding:90px 0 90px;
+  }
+
+  .honeycombs-block {
+    padding:0 10px;
+    cursor:pointer;
+    transition:all 1s;
+
+    &:hover {
+      transition: all 0.5s;
+      transform:scale(1.1);
+    }
+  }
+
+  .middle-content-block {
+    margin-top:-40px;
+  }
+
+  .bottom-content-block {
+    margin-top:-37px;
+  }
+
+}
+
+.back-color {
+  background-color: #2eb398;
+
+  .user-description-block {
+    opacity:0.7;
+    padding:0;
+    position: initial;
+    line-height: 22px;
+    font-family: 'Maven Pro', sans-serif;
+    }
+  }
+
+  .block-caption {
+    color:#d7fcf5;
+    font-size:30px;
+  }
+
+  .block-caption_2 {
+    color:#20816d;
+    font-size:18px;
+  }
+
+  .user-info-block {
+   padding:65px 0px;
+   margin:0 auto;
+   position: relative;
+  }
+
+  .block-text {
+    color:#d7fcf5;
+    font-size:12px;
+  }
+
+  .user-image-block {
+    padding:0;
+    position: initial;
+  }
+
+  .social-links-block {
+    padding:0;
+
+  .social-links-items {
+    list-style: none;
+  }
+
+  .social-links:hover {
+    opacity:0.8;
+  }
+
+}
+
+.footer {
+  background-color: #323232;
+
+  &-blocks-wrapper {
+    padding:70px 0 70px;
+  }
+
+  .footer-blocks {
+    font-family: 'Maven Pro', sans-serif;
+  }
+
+  .user-forms {
+
+  }
+
+  .footer-caption_1 {
+    font-size:30px;
+    color:#e0e0e0;
+  }
+
+  .footer-caption_2 {
+    font-size:18px;
+    color:#bebebe;
+  }
+
+  .form-control {
+    background-color:#454545;
+    border:none;
+    border-radius:1px;
+    padding:10px 15px;
+    font-size:12px;
+    font-family:"lato";
+    color:#bebebe;
+  }
+
+  input::-webkit-input-placeholder {
+    color: #bebebe !important;
+  }
+
+  textarea::-webkit-input-placeholder {
+    color: #bebebe !important;
+  }
+
+  .user-forms-button {
+    background-color: #2eb398;
+    color:#aae9dc;
+    border-radius: 0;
+    padding:10px 29px;
+    font-size: 12px;
+    font-weight:bold;
+  }
+
+  .user-form {
+    padding:20px 0 0 0
+  }
+
+  .contact-info-block {
+    padding:80px 10px 0 10px;
+
+    & p {
+      font-size:12px;
+      color:#bebebe;
+    }
+
+  }
+
+  .company-contacts-info {
+    & a {
+      display: flex;
+      color:#bebebe;
+      font-size:12px;
+      font-weight:bold;
+      position: relative;
+      padding-left:20px;
+
+      &::before {
+        content: '';
+        background: url('../img/contact-block-image_1.png') no-repeat;
+        width:15px;
+        height: 12px;
+        display: flex;
+        z-index:10;
+        position: absolute;
+        left:0;
+        top:50%;
+        transform: translateY(-50%);
+      }
+
+      &:nth-child(2n)::before {
+        background: url('../img/contact-block-image_2.png') no-repeat;
+      }
+
+      &:nth-child(3n)::before {
+        background: url('../img/contact-block-image_3.png') no-repeat;
+      }
+
+    }
+
+  }
+
+}
+
+.footer-bottom {
+  padding:10px 0 10px 40px;
+  background: #222;
+
+  &-text {
+    color:#454545;
+    font-size:12px;
+  }
 }
