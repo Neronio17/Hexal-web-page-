@@ -10,7 +10,8 @@ var gulp = require('gulp'),
      autoprefixer = require('gulp-autoprefixer'),
      browserSync = require('browser-sync').create(),
      htmlreplace = require('gulp-html-replace'),
-     cssmin = require('gulp-cssmin');
+     cssmin = require('gulp-cssmin'),
+     imagemin = require('gulp-imagemin')
 
 gulp.task("concatScripts", function() {
     return gulp.src([
