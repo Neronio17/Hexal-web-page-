@@ -27,6 +27,7 @@
     "gulp-uglify": "^3.0.0"
   },
   "dependencies": {
-    "bootstrap": "^4.1.2"
+    "bootstrap": "^4.1.2",
+    "gulp-htmlmin": "^4.0.0"
   }
 }

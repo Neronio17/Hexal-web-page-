@@ -11,6 +11,8 @@ var gulp = require('gulp'),
      browserSync = require('browser-sync').create(),
      htmlreplace = require('gulp-html-replace'),
      cssmin = require('gulp-cssmin'),
+     gulp = require('gulp'),
+     htmlmin = require('gulp-htmlmin'),
      imagemin = require('gulp-imagemin')
 
 gulp.task("concatScripts", function() {
@@ -67,6 +69,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('clean', function() {
   del(['dist', 'assets/css/main.css*', 'assets/js/main*.js*']);
+  del(['assets', 'assets/css/main.css*', 'assets/js/main*.js*']);
 });
 
 gulp.task('renameSources', function() {
@@ -78,7 +81,7 @@ gulp.task('renameSources', function() {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task("build", ['minifyScripts', 'minifyCss'], function() {
+gulp.task("build", ['minifyScripts', 'minifyCss' , 'minify' , 'img'], function() {
   return gulp.src(['*.html', '*.php', 'favicon.ico',
                    "assets/img/**", "assets/fonts/**"], { base: './'})
             .pipe(gulp.dest('dist'));
@@ -106,13 +109,14 @@ gulp.task('default', function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('img', function() {
-    return gulp.src('assets/img/**/*')
-    .pipe(imagemin({
-      interlaced: true,
-      progressive: true,
-      svgoPlugin: [{removeVievBox: false}],
-      use: [pngquant()]
-    }))
-    .pipe(gulp.dest('dist/img'));
+gulp.task('img', () =>
+    gulp.src('src/images/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/images'))
+);
+
+gulp.task('minify', function() {
+  return gulp.src('src/*.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('dist'));
 });
