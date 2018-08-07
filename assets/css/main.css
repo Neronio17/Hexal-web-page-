@@ -9238,6 +9238,7 @@ body {
 
 .navbar {
   padding: 0;
+  position: relative;
   width: 100%;
   background-color: #323232; }
   .navbar-nav {
